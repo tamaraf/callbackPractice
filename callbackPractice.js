@@ -25,6 +25,10 @@ and what you should write is the favNum function that makes the code above work,
 
 
   //Code Here for first
+var first = function(x, cb) {
+  cb(x[0]);
+
+};
   
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
@@ -39,6 +43,9 @@ first(names, function(firstName){
 
 
   //Code Here for last
+var last = function(x, cb) {
+  cb(x[x.length - 1]);
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -57,6 +64,9 @@ last(names, function(lastName){
 
 
   //Code Here for multiply
+var multiply = function(x, y, cb) {
+  cb(x * y);
+};
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
@@ -73,6 +83,13 @@ multiply(4, 3, function(answer){
 
 
   //Code Here for contains
+var contains = function(x, str, cb) {
+  for (var i = 0; i < x.length; i++){
+    if (str === x[i]) {
+     return cb(true)
+    }
+  } cb(false)
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
@@ -93,6 +110,17 @@ contains(names, 'Colt', function(result){
 
 
     //Code Here for uniq
+var uniq = function(x, cb) {
+  for (var i = 0; i < x.length; i++) {
+    for (var j = i + 1; j < x.length; j++) {
+      if (x[i] === x[j]) {
+        x.splice(j, 1);
+        j--;
+      }
+    }
+  }
+  cb(x)
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
@@ -109,6 +137,11 @@ uniq(names, function(uniqArr){
 
 
     //Code Here for each
+var each = function(x, cb) {
+  for (var i = 0; i < x.length; i++) {
+    cb(i, x[i]);
+  }
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
@@ -126,6 +159,13 @@ each(names, function(item, indice){
 
 
  //code here for getUserById
+var getUserById = function(x, str, cb) {
+  for (var i = 0; i < x.length; i++) {
+    if (x[i].id === str) {
+      cb(x[i]);
+    }
+  }
+};
 
 var users = [
   {
